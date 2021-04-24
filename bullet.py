@@ -20,7 +20,7 @@ class Bullet(Sprite):
 
         # The position of the projectile is stored in real format.
         self.y = float(self.rect.y)
-    
+
     def update(self):
         """Moves the bullet up the screen."""
         # Updating the position of the projectile in real format.
