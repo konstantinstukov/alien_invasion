@@ -6,6 +6,8 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 
+# Framerate
+clock = pygame.time.Clock()
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -108,7 +110,7 @@ class AlienInvasion:
     def _check_fleet_edges(self):
         """Reacts when an alien reaches the edge of the screen."""
         for alien in self.aliens.sprites():
-            if alien in self.aliens.sprites():
+            if alien.check_edges():
                 self._change_fleet_direction()
                 break
 
@@ -128,6 +130,9 @@ class AlienInvasion:
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
+
+        # Framerate
+        clock.tick(30)
 
     def _update_bullets(self):
         """Refresh bullets position and remove the old bullets"""
